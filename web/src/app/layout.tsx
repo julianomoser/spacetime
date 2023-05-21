@@ -11,7 +11,8 @@ import { SignIn } from '@/components/SignIn'
 import { Copyright } from '@/components/Copyright'
 import { cookies } from 'next/headers'
 
-const roboto = Roboto({ subsets: ['latin'], variable: '--font-rotobo' })
+const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
+
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
   weight: '700',
@@ -21,7 +22,7 @@ const baiJamjuree = BaiJamjuree({
 export const metadata = {
   title: 'NLW Spacetime',
   description:
-    'Uma cápsula do tempo construída com React, Next.js, TailwindCSS e TypeSCript.',
+    'Uma cápsula do tempo construída com React, Next.js, TailwindCSS e Typescript.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -33,14 +34,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${roboto.variable} ${baiJamjuree.variable} bg-gray-900 font-sans text-gray-100`}
       >
         <main className="grid min-h-screen grid-cols-2">
+          {/* Left */}
           <div
-            className={`relative flex flex-col items-start justify-between overflow-hidden 
-        border-r border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-28 py-16`}
+            className={`relative flex flex-col items-start justify-between overflow-hidden border-r 
+          border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-28 py-16`}
           >
             {/* Blur */}
             <div
-              className={`absolute right-0 top-1/2 h-[288px] w-[526px] -translate-y-1/2 translate-x-1/2 
-          rounded-full bg-purple-700 opacity-50 blur-full`}
+              className={`absolute right-0 top-1/2 h-[288px] w-[526px] -translate-y-1/2 translate-x-1/2 rounded-full 
+            bg-purple-700 opacity-50 blur-full`}
             />
 
             {/* Stripes */}
@@ -51,7 +53,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Copyright />
           </div>
 
-          <div className="flex flex-col bg-[url(../assets/bg-stars.svg)] bg-cover p-16">
+          {/* Right */}
+          <div
+            className={`flex max-h-screen flex-col overflow-y-scroll 
+          bg-[url(../assets/bg-stars.svg)] bg-cover`}
+          >
             {children}
           </div>
         </main>
